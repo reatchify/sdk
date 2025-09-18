@@ -1,0 +1,55 @@
+{
+  "name": "reatchify-sdk",
+  "version": "0.0.2-beta.1",
+  "description": "🚧 UNDER DEVELOPMENT 🚧 - Official SDK for communicating with Reatchify CMS inside your applications",
+  "keywords": [
+    "sdk",
+    "api",
+    "typescript",
+    "codegen",
+    "generator",
+    "client",
+    "rest",
+    "openapi",
+    "swagger",
+    "development"
+  ],
+  "homepage": "https://github.com/reatchify/sdk#readme",
+  "bugs": {
+    "url": "https://github.com/reatchify/sdk/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reatchify/sdk.git"
+  },
+  "license": "MIT",
+  "author": "Reatchify Team",
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "reatchify": "bin/reatchify.js"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts && tsup src/cli/index.ts --format cjs --out-dir dist/cli",
+    "dev": "ts-node src/cli/index.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "ascii-charts": "^0.0.1",
+    "asciichart": "^1.5.25",
+    "axios": "^1.12.2",
+    "commander": "^11.0.0",
+    "dotenv": "^16.0.0",
+    "figlet": "^1.9.3",
+    "prompts": "^2.4.2",
+    "zustand": "^5.0.8"
+  },
+  "devDependencies": {
+    "@types/figlet": "^1.7.0",
+    "@types/node": "^20.0.0",
+    "ts-node": "^10.0.0",
+    "tsup": "^7.0.0",
+    "typescript": "^5.0.0"
+  }
+}
