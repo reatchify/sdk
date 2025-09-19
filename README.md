@@ -1,7 +1,7 @@
 # Official Reatchify SDK
 
 [![npm version](https://badge.fury.io/js/%40reatchify%2Fsdk.svg)](https://badge.fury.io/js/%40reatchify%2Fsdk)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
 > 🚀 **BETA RELEASE** 🚀
@@ -39,6 +39,19 @@ npm install -g @reatchify/sdk
 # or
 npx @reatchify/sdk --help
 ```
+
+## Commercial Use Restrictions
+
+> ⚠️ **IMPORTANT**: This software includes commercial use restrictions
+
+This SDK is licensed under Apache License 2.0 with additional commercial restrictions:
+
+- **No Commercial Use**: May not be used for commercial purposes without explicit permission
+- **No Competitive Use**: May not be used to compete with Reatchify's core offerings
+- **Attribution Required**: Must include prominent Reatchify attribution
+- **Modification Sharing**: Modifications must be shared with the community
+
+For commercial licensing or exceptions, contact licensing@reatchify.com.
 
 ## Quick Start
 
@@ -674,7 +687,11 @@ When reporting bugs, please include:
 
 ## License
 
-MIT - See [LICENSE](LICENSE) file for details.
+Apache License 2.0 with additional commercial restrictions - See [LICENSE](LICENSE) file for details.
+
+### Commercial Use
+
+This software includes commercial use restrictions. For commercial licensing or to discuss exceptions to these restrictions, please contact Reatchify at licensing@reatchify.com.
 
 ---
 

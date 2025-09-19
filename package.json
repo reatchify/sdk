@@ -1,6 +1,6 @@
 {
   "name": "reatchify-sdk",
-    "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.1",
   "description": "🚧 UNDER DEVELOPMENT 🚧 - Official SDK for communicating with Reatchify CMS inside your applications",
   "keywords": [
     "sdk",
@@ -22,7 +22,7 @@
     "type": "git",
     "url": "git+https://github.com/reatchify/sdk.git"
   },
-  "license": "MIT",
+  "license": "Apache-2.0",
   "author": "Reatchify Team",
   "type": "commonjs",
   "main": "dist/index.js",
