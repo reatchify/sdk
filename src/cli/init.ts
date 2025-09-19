@@ -8,7 +8,7 @@ import {
   detectProjectType,
   getAvailableProjectTypes,
   type ProjectType,
-} from "../core/projectTypeDetector";
+} from "../core/project/projectTypeDetector";
 
 const configTemplate = (projectType: ProjectType) =>
   JSON.stringify(
@@ -17,7 +17,6 @@ const configTemplate = (projectType: ProjectType) =>
       language: "auto",
       stateManagement: "zustand",
       httpClient: "axios",
-      outputDir: "./src/generated/reatchify",
       projectType: projectType,
     },
     null,

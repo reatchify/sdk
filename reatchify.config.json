@@ -1,8 +1,0 @@
-{
-  "apiKey": "${REATCHIFY_API_KEY}",
-  "language": "auto",
-  "stateManagement": "zustand",
-  "httpClient": "axios",
-  "outputDir": "./src/generated/reatchify",
-  "projectType": "vanilla"
-}

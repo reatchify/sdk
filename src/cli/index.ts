@@ -36,13 +36,11 @@ program
 program
   .command("generate")
   .description("Generate SDK client code")
-  .action(
-    withLogo(async () => {
-      await Promise.resolve(runGenerate()).catch((err) => {
-        console.error("[reatchify] Unhandled error:", err);
-        process.exit(1);
-      });
-    }, "generate")
-  );
+  .action(async () => {
+    await Promise.resolve(runGenerate()).catch((err) => {
+      console.error("[reatchify] Unhandled error:", err);
+      process.exit(1);
+    });
+  });
 
 program.parse(process.argv);

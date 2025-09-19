@@ -1,6 +1,6 @@
 {
   "name": "reatchify-sdk",
-  "version": "0.0.2-beta.1",
+    "version": "1.0.0-beta.1",
   "description": "🚧 UNDER DEVELOPMENT 🚧 - Official SDK for communicating with Reatchify CMS inside your applications",
   "keywords": [
     "sdk",
@@ -33,21 +33,34 @@
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --dts && tsup src/cli/index.ts --format cjs --out-dir dist/cli",
     "dev": "ts-node src/cli/index.ts",
-    "prepublishOnly": "npm run build"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "echo 'Linting not yet configured'",
+    "format": "echo 'Formatting not yet configured'",
+    "prepublishOnly": "npm run test && npm run build",
+    "release": "npm version patch && npm publish",
+    "release:beta": "npm version prerelease --preid=beta && npm publish --tag beta"
   },
   "dependencies": {
-    "ascii-charts": "^0.0.1",
-    "asciichart": "^1.5.25",
     "axios": "^1.12.2",
+    "boxen": "^8.0.1",
+    "chalk": "^5.6.2",
+    "cli-progress": "^3.12.0",
     "commander": "^11.0.0",
-    "dotenv": "^16.0.0",
     "figlet": "^1.9.3",
+    "ora": "^9.0.0",
     "prompts": "^2.4.2",
     "zustand": "^5.0.8"
   },
   "devDependencies": {
+    "@types/boxen": "^2.1.0",
+    "@types/cli-progress": "^3.11.6",
     "@types/figlet": "^1.7.0",
+    "@types/jest": "^29.5.0",
     "@types/node": "^20.0.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.0",
     "ts-node": "^10.0.0",
     "tsup": "^7.0.0",
     "typescript": "^5.0.0"
