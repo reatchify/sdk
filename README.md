@@ -6,14 +6,6 @@
 
 > 🚀 **BETA RELEASE** 🚀
 >
-> The Reatchify SDK is now in beta! Core features are stable and ready for testing. Please report any issues you encounter.l Reatchify SDK
-
-[![npm version](https://badge.fury.io/js/%40reatchify%2Fsdk.svg)](https://badge.fury.io/js/%40reatchify%2Fsdk)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-
-> � **BETA RELEASE** �
->
 > The Reatchify SDK is now in beta! Core features are stable and ready for testing. Please report any issues you encounter.
 
 The official SDK for seamless communication with Reatchify CMS inside your applications. Generates fully-typed TypeScript client libraries for Reatchify CMS APIs with support for multiple HTTP clients, state management, and plugin architecture.
@@ -611,35 +603,6 @@ if (client.apiVersion >= "v3") {
   });
 }
 ```
-
-## SDK Usage Guide
-
-For detailed information on how the generated SDK works, how to use it, and what your backend API must provide, see the [SDK Usage Guide](docs/SDK_USAGE_GUIDE.md).
-
-This guide covers:
-
-- How the generated code works internally
-- Backend API requirements and expectations
-- Complete usage examples with different patterns
-- Error handling and best practices
-- State management integration
-- Plugin system usage
-- Performance optimization tips
-- Troubleshooting common issues
-
-## Backend Implementation Specification
-
-For the internal backend team implementing the API that this SDK communicates with, see the [API Implementation Specification](docs/API_IMPLEMENTATION_SPEC.md).
-
-This specification details:
-
-- Exact endpoint requirements and response formats
-- Authentication and authorization rules
-- Data validation specifications
-- Error response structures
-- Pagination implementation details
-- Database schema requirements
-- Testing and deployment checklists
 
 ## Development Status
 

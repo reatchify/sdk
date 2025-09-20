@@ -5,6 +5,29 @@ All notable changes to the Reatchify SDK will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.0-beta.2] - 2025-09-20
+
+### Added
+
+- **Optional Authentication**: New `auth.enabled` config option to disable API key authentication for public APIs
+- **Selective Service Generation**: New `services.include` config option to generate only specific API services, reducing bundle size
+- **Interactive CLI Setup**: Enhanced `reatchify init` command with prompts for authentication preference and service selection
+- **Service Validation**: Automatic validation of selected services against API schema with helpful error messages
+- **Conditional Client Generation**: Authentication headers are conditionally included based on config settings
+
+### Changed
+
+- **CLI User Experience**: Improved init command with guided setup for new configuration options
+- **Code Generation Logic**: Enhanced API file generation to filter services based on user selection
+- **Client Header Logic**: Authentication headers are now optional and configurable per client instance
+
+### Technical Details
+
+- **New Config Options**: `auth.enabled` (boolean) and `services.include` (string array)
+- **Backward Compatibility**: All existing configurations continue to work unchanged
+- **Test Coverage**: Added comprehensive tests for optional auth and selective service features
+- **Documentation**: Updated README.md with new configuration examples and usage patterns
+
 ## [1.0.0-beta.1] - 2025-09-19
 
 ### Added
