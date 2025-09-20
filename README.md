@@ -462,7 +462,7 @@ Control whether authentication is enabled for the generated SDK:
 ```json
 {
   "auth": {
-    "enabled": true  // Default: true, set to false to disable API key authentication
+    "enabled": true // Default: true, set to false to disable API key authentication
   }
 }
 ```
@@ -476,7 +476,7 @@ Select which API services to generate code for:
 ```json
 {
   "services": {
-    "include": ["users", "posts", "comments"]  // Only generate these services
+    "include": ["users", "posts", "comments"] // Only generate these services
   }
 }
 ```

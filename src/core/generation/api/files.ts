@@ -45,10 +45,16 @@ export function generateApiFiles(
 
   if (selectedServices) {
     // Validate selected services exist in schema
-    const invalidServices = selectedServices.filter(service => !availableServices.includes(service));
+    const invalidServices = selectedServices.filter(
+      (service) => !availableServices.includes(service)
+    );
     if (invalidServices.length > 0) {
-      console.warn(`⚠️  Warning: The following services are not available in the schema: ${invalidServices.join(', ')}`);
-      console.warn(`Available services: ${availableServices.join(', ')}`);
+      console.warn(
+        `⚠️  Warning: The following services are not available in the schema: ${invalidServices.join(
+          ", "
+        )}`
+      );
+      console.warn(`Available services: ${availableServices.join(", ")}`);
     }
   }
 
@@ -145,7 +151,7 @@ export function generateApiFiles(
     }
 
     // Filter endpoints by selected services
-    const filteredEndpoints = schema.endpoints.filter(endpoint => {
+    const filteredEndpoints = schema.endpoints.filter((endpoint) => {
       const resource = endpoint.path.split("/")[1] || "general";
       return servicesToGenerate.includes(resource);
     });

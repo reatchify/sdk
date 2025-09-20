@@ -96,8 +96,12 @@ export async function runInit() {
   await showFancyLogo("init");
   console.log("[reatchify] Created reatchify.config.json");
   console.log(`[reatchify] Project type set to: ${selectedProjectType}`);
-  console.log(`[reatchify] Authentication ${enableAuth ? 'enabled' : 'disabled'}`);
+  console.log(
+    `[reatchify] Authentication ${enableAuth ? "enabled" : "disabled"}`
+  );
   if (!enableAuth) {
-    console.log("[reatchify] Note: You can enable specific services by adding a 'services.include' array to your config");
+    console.log(
+      "[reatchify] Note: You can enable specific services by adding a 'services.include' array to your config"
+    );
   }
 }

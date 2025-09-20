@@ -95,6 +95,6 @@ jspm_packages/
 # Temporary folders
 tmp/
 temp/
- 
+ docs
 # Ignore API building guide (local only)
 API_BUILDING_GUIDE.md
