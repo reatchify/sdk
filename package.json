@@ -30,6 +30,14 @@
   "bin": {
     "reatchify": "bin/reatchify.js"
   },
+  "files": [
+    "dist",
+    "bin",
+    "docs",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --dts && tsup src/cli/index.ts --format cjs --out-dir dist/cli",
     "dev": "ts-node src/cli/index.ts",

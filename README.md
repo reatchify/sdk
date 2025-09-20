@@ -574,19 +574,34 @@ if (client.apiVersion >= "v3") {
 }
 ```
 
-## API Building Guide
+## SDK Usage Guide
 
-For information on building APIs that work with the Reatchify SDK, see [API_BUILDING_GUIDE.md](API_BUILDING_GUIDE.md).
+For detailed information on how the generated SDK works, how to use it, and what your backend API must provide, see the [SDK Usage Guide](docs/SDK_USAGE_GUIDE.md).
 
 This guide covers:
 
-- RESTful API design principles
-- Schema definition requirements
-- Authentication patterns
-- Error handling standards
-- Pagination implementation
-- Versioning strategies
-- Security best practices
+- How the generated code works internally
+- Backend API requirements and expectations
+- Complete usage examples with different patterns
+- Error handling and best practices
+- State management integration
+- Plugin system usage
+- Performance optimization tips
+- Troubleshooting common issues
+
+## Backend Implementation Specification
+
+For the internal backend team implementing the API that this SDK communicates with, see the [API Implementation Specification](docs/API_IMPLEMENTATION_SPEC.md).
+
+This specification details:
+
+- Exact endpoint requirements and response formats
+- Authentication and authorization rules
+- Data validation specifications
+- Error response structures
+- Pagination implementation details
+- Database schema requirements
+- Testing and deployment checklists
 
 ## Development Status
 
