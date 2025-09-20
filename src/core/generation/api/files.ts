@@ -39,13 +39,32 @@ export function generateApiFiles(
   const groupByResource = apiConfig.groupByResource !== false;
   const includeHttpClient = apiConfig.includeHttpClient !== false;
 
+  // Get selected services or all services from schema
+  const selectedServices = config.services?.include;
+  const availableServices = getAvailableServices(schema);
+
+  if (selectedServices) {
+    // Validate selected services exist in schema
+    const invalidServices = selectedServices.filter(service => !availableServices.includes(service));
+    if (invalidServices.length > 0) {
+      console.warn(`⚠️  Warning: The following services are not available in the schema: ${invalidServices.join(', ')}`);
+      console.warn(`Available services: ${availableServices.join(', ')}`);
+    }
+  }
+
+  const servicesToGenerate = selectedServices || availableServices;
+
   if (groupByResource) {
-    // Group endpoints by resource
+    // Group endpoints by resource and filter by selected services
     const resources: Record<string, typeof schema.endpoints> = {};
     for (const endpoint of schema.endpoints) {
       const resource = endpoint.path.split("/")[1] || "general";
-      if (!resources[resource]) resources[resource] = [];
-      resources[resource].push(endpoint);
+
+      // Only include this resource if it's in the selected services
+      if (servicesToGenerate.includes(resource)) {
+        if (!resources[resource]) resources[resource] = [];
+        resources[resource].push(endpoint);
+      }
     }
 
     // Generate resource files
@@ -125,7 +144,13 @@ export function generateApiFiles(
       }/http';\n\n`;
     }
 
-    for (const endpoint of schema.endpoints) {
+    // Filter endpoints by selected services
+    const filteredEndpoints = schema.endpoints.filter(endpoint => {
+      const resource = endpoint.path.split("/")[1] || "general";
+      return servicesToGenerate.includes(resource);
+    });
+
+    for (const endpoint of filteredEndpoints) {
       const methodName = generateMethodName(endpoint);
 
       if (includeComments && endpoint.description) {
@@ -170,4 +195,16 @@ export function generateApiFiles(
   }
 
   return files;
+}
+
+/**
+ * Extracts available service names from the API schema
+ */
+function getAvailableServices(schema: ApiSchema): string[] {
+  const services = new Set<string>();
+  for (const endpoint of schema.endpoints) {
+    const resource = endpoint.path.split("/")[1] || "general";
+    services.add(resource);
+  }
+  return Array.from(services);
 }

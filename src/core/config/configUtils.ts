@@ -90,6 +90,17 @@ export function mergeConfigWithDefaults(
       ...userConfig.api,
     },
 
+    // Auth defaults
+    auth: {
+      enabled: true,
+      ...userConfig.auth,
+    },
+
+    // Services defaults
+    services: {
+      ...userConfig.services,
+    },
+
     // Response defaults
     response: {
       pattern: "result",

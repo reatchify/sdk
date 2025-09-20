@@ -10,7 +10,7 @@ import {
   type ProjectType,
 } from "../core/project/projectTypeDetector";
 
-const configTemplate = (projectType: ProjectType) =>
+const configTemplate = (projectType: ProjectType, enableAuth: boolean = true) =>
   JSON.stringify(
     {
       apiKey: "${REATCHIFY_API_KEY}",
@@ -18,6 +18,12 @@ const configTemplate = (projectType: ProjectType) =>
       stateManagement: "zustand",
       httpClient: "axios",
       projectType: projectType,
+      auth: {
+        enabled: enableAuth,
+      },
+      // services: {
+      //   include: ["users", "posts"] // Uncomment and customize to select specific services
+      // },
     },
     null,
     2
@@ -61,6 +67,16 @@ export async function runInit() {
 
   const selectedProjectType = projectTypeResponse.projectType as ProjectType;
 
+  // Ask about authentication
+  const authResponse = await prompts({
+    type: "confirm",
+    name: "enableAuth",
+    message: "Enable authentication (API key required for requests)?",
+    initial: true,
+  });
+
+  const enableAuth = authResponse.enableAuth;
+
   // Check if config already exists
   if (fs.existsSync(configPath)) {
     const response = await prompts({
@@ -76,8 +92,12 @@ export async function runInit() {
   }
 
   // Create config file
-  fs.writeFileSync(configPath, configTemplate(selectedProjectType));
+  fs.writeFileSync(configPath, configTemplate(selectedProjectType, enableAuth));
   await showFancyLogo("init");
   console.log("[reatchify] Created reatchify.config.json");
   console.log(`[reatchify] Project type set to: ${selectedProjectType}`);
+  console.log(`[reatchify] Authentication ${enableAuth ? 'enabled' : 'disabled'}`);
+  if (!enableAuth) {
+    console.log("[reatchify] Note: You can enable specific services by adding a 'services.include' array to your config");
+  }
 }

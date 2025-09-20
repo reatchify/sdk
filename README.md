@@ -372,6 +372,14 @@ The SDK automatically manages version-specific endpoints:
   "httpClient": "axios",
   "outputDir": "./src/generated/reatchify",
 
+  "auth": {
+    "enabled": true
+  },
+
+  "services": {
+    "include": ["users", "posts", "comments"]
+  },
+
   "naming": {
     "clientPrefix": "Reatchify",
     "storePrefix": "use",
@@ -446,6 +454,36 @@ The SDK automatically manages version-specific endpoints:
   }
 }
 ```
+
+### Authentication Configuration
+
+Control whether authentication is enabled for the generated SDK:
+
+```json
+{
+  "auth": {
+    "enabled": true  // Default: true, set to false to disable API key authentication
+  }
+}
+```
+
+When `auth.enabled` is `false`, the generated client will not include authentication headers in requests. This is useful for public APIs that don't require authentication.
+
+### Service Selection Configuration
+
+Select which API services to generate code for:
+
+```json
+{
+  "services": {
+    "include": ["users", "posts", "comments"]  // Only generate these services
+  }
+}
+```
+
+- **Default behavior**: If not specified, all available services from the API schema are generated
+- **Selective generation**: Only generate code for the specified services to reduce bundle size
+- **Validation**: The SDK validates that specified services exist in the API schema
 
 ## CLI Commands
 

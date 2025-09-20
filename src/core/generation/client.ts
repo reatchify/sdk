@@ -35,6 +35,7 @@ export function generateClientFiles(
   const errorConfig = config.errorHandling || {};
   const httpConfig = config.http || {};
   const versioningConfig = config.versioning || {};
+  const authConfig = config.auth || {};
   const includeComments = config.generation?.includeComments !== false;
 
   // HTTP client wrapper
@@ -78,7 +79,8 @@ export function generateClientFiles(
       clientConfig,
       responseConfig,
       pluginsConfig,
-      versioningConfig
+      versioningConfig,
+      authConfig
     );
   }
 
@@ -428,7 +430,8 @@ function generateMainClientClass(
   clientConfig: any,
   responseConfig: any,
   pluginsConfig: any,
-  versioningConfig: any
+  versioningConfig: any,
+  authConfig: any
 ): string {
   const className = clientConfig.className || "ReatchifyClient";
   let clientContent = includeComments
@@ -531,7 +534,9 @@ function generateMainClientClass(
       clientContent += `      url,\n`;
       clientContent += `      ...options,\n`;
       clientContent += `      headers: {\n`;
-      clientContent += `        'Authorization': \`Bearer \${this.config.apiKey}\`,\n`;
+      if (authConfig.enabled !== false) {
+        clientContent += `        'Authorization': \`Bearer \${this.config.apiKey}\`,\n`;
+      }
       if (versioningConfig.enabled !== false) {
         clientContent += `        '${
           versioningConfig.headerName || "X-API-Version"
@@ -567,7 +572,9 @@ function generateMainClientClass(
       clientContent += `      url,\n`;
       clientContent += `      ...options,\n`;
       clientContent += `      headers: {\n`;
-      clientContent += `        'Authorization': \`Bearer \${this.config.apiKey}\`,\n`;
+      if (authConfig.enabled !== false) {
+        clientContent += `        'Authorization': \`Bearer \${this.config.apiKey}\`,\n`;
+      }
       if (versioningConfig.enabled !== false) {
         clientContent += `        '${
           versioningConfig.headerName || "X-API-Version"

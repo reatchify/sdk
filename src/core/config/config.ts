@@ -40,6 +40,16 @@ export interface ReatchifyConfig {
     hookPrefix?: string;
   };
 
+  // Authentication configuration
+  auth?: {
+    enabled?: boolean; // default: true - whether to generate authentication code
+  };
+
+  // Service selection configuration
+  services?: {
+    include?: string[]; // default: all services from schema - which services to generate
+  };
+
   // API Version configuration (user can choose version)
   apiVersion?: string; // default: INTERNAL_API_CONFIG.defaultVersion
 
